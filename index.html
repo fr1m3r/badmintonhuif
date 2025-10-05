@@ -3,7 +3,7 @@
     <head>
         <meta charset="uft-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Demo - Hjordkær UIF Badminton</title>
+        <title>Hjordkær UIF Badminton</title>
         <meta name="description" content="Velkommen til Hjordkær UIF Badminton - din lokale badmintonklub for motionister, ungdom og seniorer. Se træningstider, tilmelding, klubevents og meget mere. Bliv en del af fællesskabet - alle er velkomne!" />
         <style>
             :root{
@@ -118,9 +118,14 @@
             }
 
             .mobile-submenu {
+                display: none;
                 margin-left: 16px;
                 border-left: 2px solid var(--muted);
                 padding-left: 10px;
+            }
+
+            .mobile-submenu.open {
+                display: block;
             }
             
             /* Responsive */
@@ -170,7 +175,7 @@
                 </div>
             </div>
             <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
-                <a href="#om">Om klubben</a>
+                <a href="#om" class="mobile-parent">Om klubben</a>
                 <div class="mobile-submenu">
                     <a href="#hvem">Hvem er vi?</a>
                     <a href="#historie">Klubbens historie</a>
@@ -342,6 +347,23 @@
             document.getElementById('mobileBliv')?.addEventListener('click',(e)=>{ e.preventDefault(); openModal(); });
             document.getElementById('desktopBliv')?.addEventListener('click',(e)=>{ e.preventDefault(); openModal(); });
             document.getElementById('bliv')?.addEventListener('click',(e)=>{ e.preventDefault(); openModal(); });
+
+            // Mobile submenu toggle
+            document.querySelectorAll('.mobile-parent').forEach(parentLink => {
+                parentLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // undgå at hoppe til #om
+
+                    const submenu = parentLink.nextElementSibling;
+
+                    // Luk alle andre åbne submenus først (valgfrit)
+                    document.querySelectorAll('.mobile-submenu.open').forEach(openMenu => {
+                        if (openMenu !== submenu) openMenu.classList.remove('open');
+                    });
+
+                    // Toggle denne submenu
+                    submenu.classList.toggle('open');
+                });
+            });
         </script>
     </body>
 </html>
