@@ -3,8 +3,8 @@
     <head>
         <meta charset="uft-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Demo - Hjordkær UIF Badminton</title>
-        <meta name="description" content="Demo page - Velkommen til Hjordkær UIF Badminton - din lokale badmintonklub for motionister, ungdom og seniorer. Se træningstider, tilmelding, klubevents og meget mere. Bliv en del af fællesskabet - alle er velkomne!" />
+        <title>Hjordkær UIF Badminton</title>
+        <meta name="description" content="Velkommen til Hjordkær UIF Badminton - din lokale badmintonklub for motionister, ungdom og seniorer. Se træningstider, tilmelding, klubevents og meget mere. Bliv en del af fællesskabet - alle er velkomne!" />
         <style>
             :root{
                 --accent: #0d853e;
@@ -48,7 +48,7 @@
             .hero-overlay{position:absolute; right:28px; bottom:36px; background:rgba(255,255,255,0.85); padding:8px 12px; border-radius:8px; font-weight:600}
 
             /* Sections */
-            section{padding:48px 0}
+            section{padding:30px 0}
             h2.section-title{font-size:28px; margin:0 0 18px}
 
             /* We offer grid */
@@ -79,6 +79,49 @@
             .form-row.full{grid-template-columns:1fr}
             input,select,textarea{width:100%; padding:10px; border-radius:8px; border:1px solid #e6e6e6}
             .modal .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
+
+            /* Dropdown menu */
+            .dropdown {
+                position: relative;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--card);
+                box-shadow: 0 6px 18px rgba(16,24,40,0.08);
+                border-radius: var(--radius);
+                list-style: none;
+                margin: 0;
+                padding: 8px 0;
+                display: none;
+                min-width: 180px;
+                z-index: 50;
+            }
+
+            .dropdown-menu li a {
+                display: block;
+                padding: 10px 16px;
+                text-decoration: none;
+                color: var(--dark);
+                white-space: nowrap;
+            }
+
+            .dropdown-menu li a:hover {
+                background: var(--muted);
+            }
+
+            /* Vis dropdown ved hover */
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .mobile-submenu {
+                margin-left: 16px;
+                border-left: 2px solid var(--muted);
+                padding-left: 10px;
+            }
             
             /* Responsive */
             @media (max-width:900px){
@@ -96,13 +139,23 @@
         </style>
     </head>
     <body>
-        <p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
         <header>
             <div class="container nav">
                 <a href="index.html" class="brand">Hjordkær UIF Badminton</a>
                 <nav>
                     <ul>
-                        <li><a href="#om">Om klubben</a></li>
+                        <li class="dropdown">
+                            <a href="#om">Om klubben▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#hvem">Hvem er vi?</a></li>
+                                <li><a href="#historie">Klubbens historie</a></li>
+                                <li><a href="#bestyrelse">Bestyrelse</a></li>
+                                <li><a href="#træner">Træner</a></li>
+                                <li><a href="#frivillighed">Frivillighed i klubben</a></li>
+                                <li><a href="#vedtægter">Vedtægter</a></li>
+                                <li><a href="#referat">Referat</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#hold">Hold & træning</a></li>
                         <li><a href="#turneringer">Turneringer & events</a></li>
                         <li><a href="#medlem">Medlemskab</a></li>
@@ -117,6 +170,15 @@
             </div>
             <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
                 <a href="#om">Om klubben</a>
+                <div class="mobile-submenu">
+                    <a href="#hvem">Hvem er vi?</a>
+                    <a href="#historie">Klubbens historie</a>
+                    <a href="#bestyrelse">Bestyrelse</a>
+                    <a href="#træner">Træner</a>
+                    <a href="#frivillighed">Frivillighed i klubben</a>
+                    <a href="#vedtægter">Vedtægter</a>
+                    <a href="#referat">Referat</a>
+                </div>
                 <a href="#hold">Hold & træning</a>
                 <a href="#turneringer">Turneringer & events</a>
                 <a href="#medlem">Medlemskab</a>
@@ -176,20 +238,19 @@
         </main>
 
         <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>© <strong>Hjordkær UIF Badminton</strong> — Alle rettigheder</div>
-      <div class="sponsors">
-        <!-- Eksempel på eksisterende sponsorer -->
-        <div class="sponsor"></div>
-        <div class="sponsor"></div>
-        <a href="https://sponsorworld.dk" target="_blank" rel="noopener" class="sponsor" style="background:white; display:flex; align-items:center; justify-content:center;">
-          <img src="images/sponsor-world-logo.png" alt="SponsorWorld logo" style="max-height:28px; max-width:80px; object-fit:contain;" />
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div>© <strong>Hjordkær UIF Badminton</strong> — Alle rettigheder</div>
+                    <div class="sponsors">
+                        <div class="sponsor"></div>
+                        <div class="sponsor"></div>
+                        <a href="https://sponsorworld.dk" target="_blank" rel="noopener" class="sponsor" style="background:white; display:flex; align-items:center; justify-content:center;">
+                            <img src="images/sponsor-world-logo.png" alt="SponsorWorld logo" style="max-height:28px; max-width:80px; object-fit:contain;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <!-- Booking modal -->
         <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
