@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="da">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Demo - Hjordkær UIF Badminton</title>
+        <meta name="description" content="Velkommen til Hjordkær UIF Badminton - din lokale badmintonklub for motionister, ungdom og seniorer. Se træningstider, tilmelding, klubevents og meget mere. Bliv en del af fællesskabet - alle er velkomne!" />
+        <style>
+            :root{
+                --accent: #0d853e;
+                --muted:#f4f5f6;
+                --dark:#111;
+                --card:#ffffff;
+                --radius:10px;
+                --max-width:1100px;
+            }
+            *{box-sizing:border-box}
+            body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:var(--dark); background:linear-gradient(#fff,#fafafa);}
+            a{color:inherit}
+            .container{max-width:var(--max-width); margin:0 auto; padding:0 20px;}
+
+            /* Header */
+            header{background:transparent; position:sticky; top:0; z-index:40; backdrop-filter: blur(4px);}
+            .nav{display:flex; align-items:center; justify-content:space-between; height:72px;}
+            .brand{font-weight:700; letter-spacing:1px; font-size:20px; text-decoration: none;}
+            nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center}
+            nav a{color:var(--dark); text-decoration:none; font-weight:500}
+
+            /* Hamburger (mobile) */
+            .hamburger{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px}
+            .hamburger button{background:transparent; border:0; padding:8px; cursor:pointer; background-color: #0d853e; border-radius:8px; color: white;}
+            .mobile-menu{display:none; background:var(--card); position:absolute; top:72px; left:0; right:0; box-shadow:0 8px 24px rgba(16,24,40,0.08); padding:12px 20px}
+            .mobile-menu a{text-decoration:none; display:block; padding:10px 0; border-bottom:1px solid #f2f2f2}
+
+            /* hero */
+            .hvem{display:flex; align-items:center; min-height:460px; margin-top:14px; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#f6f7f8,#ffffff);}
+            .hvem-content{flex:1; padding:56px 40px}
+            h1{font-size:48px; line-height:1.02; margin:0 0 14px}
+            p.lead{font-size:18px; color:#4d5055; margin:0 0 20px}
+            .btn{padding:12px 20px; border-radius:8px; text-decoration:none; display:inline-block; font-weight:600}
+            .btn-primary{background:var(--accent); color:white}
+
+            /* Sections */
+            section{padding:30px 0}
+            h2.section-title{font-size:28px; margin:0 0 18px}
+
+            .p{font-size:14px; color:#6b6f76; margin-bottom:10px}
+
+            /* Footer */
+            footer{padding:28px 0; border-top:1px solid #eee}
+            .footer-grid{display:flex; justify-content:space-between; gap:20px; align-items:center}
+            .sponsors{display:flex; gap:12px; align-items:center}
+            .sponsor{height:36px; width:84px; background:linear-gradient(#f0f0f0,#e8e8e8); border-radius:6px}
+
+            /* Dropdown menu */
+            .dropdown {
+                position: relative;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--card);
+                box-shadow: 0 6px 18px rgba(16,24,40,0.08);
+                border-radius: var(--radius);
+                list-style: none;
+                margin: 0;
+                padding: 8px 0;
+                display: none;
+                min-width: 180px;
+                z-index: 50;
+            }
+
+            .dropdown-menu li a {
+                display: block;
+                padding: 10px 16px;
+                text-decoration: none;
+                color: var(--dark);
+                white-space: nowrap;
+            }
+
+            .dropdown-menu li a:hover {
+                background: var(--muted);
+            }
+
+            /* Vis dropdown ved hover */
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .mobile-submenu {
+                display: none;
+                margin-left: 16px;
+                border-left: 2px solid var(--muted);
+                padding-left: 10px;
+            }
+
+            .mobile-submenu.open {
+                display: block;
+            }
+            
+            /* Responsive */
+            @media (max-width:900px){
+                h1{font-size:36px}
+                .hvem{padding-bottom:10px}
+                .hvem-content{padding:28px}
+            }
+            @media (max-width:560px){
+                h1{font-size:28px}
+                nav ul{display:none}
+                .hamburger{display:flex}
+            }
+        </style>
+    </head>
+    <body>
+        <p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
+        <header>
+            <div class="container nav">
+                <a href="index.html" class="brand">Hjordkær UIF Badminton</a>
+                <nav>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#om">Om klubben▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="hvem.html">Hvem er vi? / Historie</a></li>
+                                <li><a href="bestyrelse.html">Bestyrelse</a></li>
+                                <li><a href="træner.html">Træner</a></li>
+                                <li><a href="#frivillighed">Frivillighed i klubben</a></li>
+                                <li><a href="#vedtægter">Vedtægter</a></li>
+                                <li><a href="#referat">Referat</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#hold">Hold & træning</a></li>
+                        <li><a href="#turneringer">Turneringer & events</a></li>
+                        <li><a href="#medlem">Medlemskab</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+
+                <div class="hamburger" aria-hidden="false">
+                    <button id="hamburgerBtn" aria-label="Åbn menu" class="">Menu</button>
+                </div>
+            </div>
+            <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
+                <a href="#om" class="mobile-parent">Om klubben▾</a>
+                <div class="mobile-submenu">
+                    <a href="hvem.html">Hvem er vi? / Klubbens historie</a>
+                    <a href="bestyrelse.html">Bestyrelse</a>
+                    <a href="træner.html">Træner</a>
+                    <a href="#frivillighed">Frivillighed i klubben</a>
+                    <a href="#vedtægter">Vedtægter</a>
+                    <a href="#referat">Referat</a>
+                </div>
+                <a href="#hold">Hold & træning</a>
+                <a href="#turneringer">Turneringer & events</a>
+                <a href="#medlem">Medlemskab</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </header>
+
+        <main class="container">
+            <section id="hvem" aria-label="Hvem er Hjordkær UIF Badminton">
+                <div class="hvem-content">
+                    <h1>Hvem er <span style="color:var(--accent)">Hjordkær UIF Badminton</span></h1>
+                    <p class="lead">Fællesskab, motion og badminton for alle</p>
+                    <div>
+                        <p>Hjordkær UIF Badminton er en aktiv del af Hjordkær Ungdoms- og Idrætsforening (HUIF), som har hjemme i Hjordkær. Klubben har gennem mange år været et samlingspunkt for både børn, unge og voksne, der deler glæden ved badminton og fællesskab.</p>
+                        <p>Træningen og kampene foregår i Hjordkær Hallen, som danner rammen for klubbens aktiviteter og er et centralt sted i lokalsamfundets idrætsliv. Her mødes både nybegyndere, motionister og erfarne spillere til træning, hygge og turneringer.</p>
+                        <p>Hjordkær UIF Badminton lægger stor vægt på fællesskab og frivillighed. Klubben drives af et engageret badmintonudvalg og en række frivillige, som bidrager til alt fra planlægning af træning og stævner til afvikling af klubbens egne arrangementer som det årlige klubmesterskab.</p>
+                        <p>Der er plads til alle i Hjordkær UIF Badminton - uanset om man spiller for motionens skyld, for det sociale fællesskab eller for at udvikle sig sportsligt. Klubben tilbyder hold og træning for ungdom, seniorer og motionister, og der gives ofte rabat i kontingentet til de medlemmer, der hjælper med praktiske opgaver i foreningen.</p>
+                        <p>Som en del af HUIF-fællesskabet er badmintonafdelingen med til at styrke det lokale idrætsliv i Hjordkær og omegn. Her handler det ikke kun om sport, men også om sammenhold, frivillighed og det gode lokale engagement, som er kernen i foreningslivet.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div>© <strong>Hjordkær UIF Badminton</strong> — Alle rettigheder</div>
+                    <div class="sponsors">
+                        <div class="sponsor"></div>
+                        <div class="sponsor"></div>
+                        <a href="https://sponsorworld.dk" target="_blank" rel="noopener" class="sponsor" style="background:white; display:flex; align-items:center; justify-content:center;">
+                            <img src="images/sponsor-world-logo.png" alt="SponsorWorld logo" style="max-height:28px; max-width:80px; object-fit:contain;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Hamburger menu
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            let menuOpen = false;
+            hamburgerBtn && hamburgerBtn.addEventListener('click', () => {
+                menuOpen = !menuOpen;
+                mobileMenu.style.display = menuOpen ? 'block' : 'none';
+                mobileMenu.setAttribute('aria-hidden', menuOpen ? 'false' : 'true');
+            });
+
+            // Mobile submenu toggle
+            document.querySelectorAll('.mobile-parent').forEach(parentLink => {
+                parentLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // undgå at hoppe til #om
+
+                    const submenu = parentLink.nextElementSibling;
+
+                    // Luk alle andre åbne submenus først (valgfrit)
+                    document.querySelectorAll('.mobile-submenu.open').forEach(openMenu => {
+                        if (openMenu !== submenu) openMenu.classList.remove('open');
+                    });
+
+                    // Toggle denne submenu
+                    submenu.classList.toggle('open');
+                });
+            });
+        </script>
+    </body>
+</html>
