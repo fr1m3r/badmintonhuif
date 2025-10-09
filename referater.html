@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo – Hjordkær UIF Badminton</title>
+  <style>
+    :root{
+      --accent: #0d853e;
+      --muted:#f4f5f6;
+      --dark:#111;
+      --card:#ffffff;
+      --radius:10px;
+      --max-width:900px;
+    }
+    *{box-sizing:border-box;}
+    body{
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      margin:0;
+      background:linear-gradient(#fff,#fafafa);
+      color:var(--dark);
+    }
+    header, footer{
+      background:white;
+      box-shadow:0 2px 6px rgba(0,0,0,0.06);
+    }
+    header{
+      padding:14px 20px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    header a{
+      font-weight:700;
+      text-decoration:none;
+      color:var(--accent);
+    }
+    main{
+      max-width:var(--max-width);
+      margin:40px auto;
+      padding:0 20px;
+    }
+    h1{
+      font-size:32px;
+      color:var(--accent);
+      margin-bottom:10px;
+    }
+    p{color:#444;}
+    ul.file-list{
+      list-style:none;
+      padding:0;
+      margin:30px 0;
+    }
+    ul.file-list li{
+      background:var(--card);
+      margin-bottom:10px;
+      border-radius:var(--radius);
+      padding:14px 18px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    ul.file-list li a{
+      text-decoration:none;
+      color:var(--dark);
+      font-weight:600;
+    }
+    .file-date{
+      font-size:14px;
+      color:#777;
+    }
+    footer{
+      padding:20px;
+      text-align:center;
+      font-size:14px;
+      color:#555;
+    }
+  </style>
+</head>
+<body>
+	<p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
+  <header>
+    <a href="index.html">← Tilbage til forsiden</a>
+  </header>
+
+  <main>
+    <h1>Referater</h1>
+    <p>Her kan du læse klubbens bestyrelsesreferater og dokumenter. Klik på et referat for at åbne det.</p>
+
+    <ul class="file-list">
+      <li>
+        <a href="referater/Test.pdf" target="_blank">
+          Bestyrelsesreferat januar 2025
+        </a>
+        <span class="file-date">18. januar 2025</span>
+      </li>
+      <li>
+        <a href="referater/Test.pdf" target="_blank">
+          Bestyrelsesreferat marts 2025
+        </a>
+        <span class="file-date">22. marts 2025</span>
+      </li>
+      <li>
+        <a href="referater/Test.pdf" target="_blank">
+          Bestyrelsesreferat maj 2025
+        </a>
+        <span class="file-date">14. maj 2025</span>
+      </li>
+    </ul>
+
+    <p style="font-size:14px; color:#666;">Senest opdateret: 1. oktober 2025</p>
+  </main>
+
+  <footer>
+    © Hjordkær UIF Badminton
+  </footer>
+
+  <!-- <script>
+    // Henter liste over filer fra referater.json (eller server-side)
+    async function loadFiles(){
+      const fileList = document.getElementById('fileList');
+      try {
+        const res = await fetch('./referater/referater.json'); // fx [{"name":"Bestyrelsesreferat_maj_2025.pdf","date":"2025-05-14"}]
+        if(!res.ok) throw new Error('Ingen filfundet');
+        const files = await res.json();
+
+        if(files.length === 0){
+          fileList.innerHTML = '<li>Der er endnu ingen referater.</li>';
+          return;
+        }
+
+        fileList.innerHTML = '';
+        files.forEach(file => {
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = './referater/' + file.name;
+          link.textContent = file.name.replace(/_/g, ' ');
+          link.target = "_blank";
+
+          const date = document.createElement('span');
+          date.className = 'file-date';
+          date.textContent = file.date ? new Date(file.date).toLocaleDateString('da-DK') : '';
+
+          li.append(link, date);
+          fileList.appendChild(li);
+        });
+      } catch (e){
+        fileList.innerHTML = '<li>Kunne ikke hente referater.</li>';
+      }
+    }
+
+    loadFiles();
+  </script> -->
+</body>
+</html>
