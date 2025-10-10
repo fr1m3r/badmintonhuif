@@ -16,7 +16,7 @@
             }
             *{box-sizing:border-box}
             body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:var(--dark); background:linear-gradient(#fff,#fafafa);}
-            a{color:inherit;text-decoration:none}
+            a{color:inherit}
             .container{max-width:var(--max-width); margin:0 auto; padding:0 20px;}
 
             /* Header */
@@ -25,7 +25,6 @@
             .brand{font-weight:700; letter-spacing:1px; font-size:20px; text-decoration: none;}
             nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center}
             nav a{color:var(--dark); text-decoration:none; font-weight:500}
-            .primary-cta{background:var(--accent); color:white; padding:10px 14px; border-radius:8px; text-decoration:none}
 
             /* Hamburger (mobile) */
             .hamburger{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px}
@@ -34,30 +33,24 @@
             .mobile-menu a{text-decoration:none; display:block; padding:10px 0; border-bottom:1px solid #f2f2f2}
 
             /* hero */
-            .hero{display:flex; align-items:center; min-height:460px; margin-top:14px; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#f6f7f8,#ffffff);}
-            .hero-left{flex:1; padding:56px 40px}
-            h1{font-size:42px; margin:0 0 10px}
-            p.lead{font-size:18px; color:#4d5055; margin:0}
-
-            .hero-right{flex:1; min-height:300px; display:flex; align-items:center; justify-content:center}
-            .hero-right img{width:100%;max-width:380px;object-fit:contain}
+            .hvem{display:flex; align-items:center; min-height:460px; margin-top:14px; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#f6f7f8,#ffffff);}
+            .hvem-content{flex:1; padding:56px 40px}
+            h1{font-size:48px; line-height:1.02; margin:0 0 14px}
+            p.lead{font-size:18px; color:#4d5055; margin:0 0 20px}
+            .btn{padding:12px 20px; border-radius:8px; text-decoration:none; display:inline-block; font-weight:600}
+            .btn-primary{background:var(--accent); color:white}
 
             /* Sections */
             section{padding:30px 0}
+            h2.section-title{font-size:28px; margin:0 0 18px}
+
+            .p{font-size:14px; color:#6b6f76; margin-bottom:10px}
 
             /* Footer */
             footer{padding:28px 0; border-top:1px solid #eee}
             .footer-grid{display:flex; justify-content:space-between; gap:20px; align-items:center}
             .sponsors{display:flex; gap:12px; align-items:center}
             .sponsor{height:36px; width:84px; background:linear-gradient(#f0f0f0,#e8e8e8); border-radius:6px}
-
-            /* Bestyrelsesgrid */
-            .board-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:30px}
-            .board-card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 18px rgba(16,24,40,0.05);padding:16px;text-align:center}
-            .board-card img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:12px}
-            .board-card .name{font-weight:700;margin-bottom:4px}
-            .board-card .role{color:#666;font-size:14px;margin-bottom:8px}
-            .board-card .contact{font-size:13px;color:#555}
 
             /* Dropdown menu */
             .dropdown {
@@ -110,23 +103,18 @@
             /* Responsive */
             @media (max-width:900px){
                 h1{font-size:36px}
-                .grid{grid-template-columns:repeat(2,1fr)}
-                .hero{flex-direction:column; padding-bottom:10px}
-                .hero-right{order:-1; width:100%}
-                .hero-left{padding:28px}
-                .hero-overlay{font-weight:300}
-
+                .hvem{padding-bottom:10px}
+                .hvem-content{padding:28px}
             }
             @media (max-width:560px){
                 h1{font-size:28px}
                 nav ul{display:none}
                 .hamburger{display:flex}
-                .hero-overlay{font-weight:300}
             }
         </style>
     </head>
     <body>
-	<p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
+<p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
         <header>
             <div class="container nav">
                 <a href="index.html" class="brand">Hjordkær UIF Badminton</a>
@@ -186,48 +174,42 @@
         </header>
 
         <main class="container">
-            <section class="hero">
-                <div class="hero-left">
-                    <h1>Bestyrelsen</h1>
-                    <p class="lead">De frivillige kræfter bag Hjordkær UIF Badminton</p>
-                </div>
-                <div class="hero-right">
-                    <img src="images/logo_uden_fyld_krans_v2.png" alt="Klubbens logo">
-                </div>
-            </section>
+            <section id="hvem" aria-label="Privatlivspolitik">
+                <div class="hvem-content">
+                    <h1>Privatlivspolitik for idrætsforeninger</h1>
+                    <p class="lead">Senest revideret d. 30.09.2028</p>
+                    <div>
+                        <h2>HUIF Badmintonafdelings dataansvar</h2>
+                        <p>Vi behandler personoplysninger og har derfor vedtaget denne privatlivspolitik, der kort fortæller dig, hvordan vi behandler dine personoplysninger til sikring af en fair og gennemsigtig behandling.</p>
+                        <p>Gennemgående for vores databehandling er, at vi kun behandler personoplysninger til bestemte formål og ud fra berettigede (legitime) interesser. Vi behandler kun personoplysninger, der er relevante og nødvendige til opfyldelse af de angivne formål, og vi sletter dine oplysninger, når de ikke længere er nødvendige.</p>
+                    </div>
+                    <div>
+                        <h2>Kontaktoplysninger på den dataansvarlige</h2>
+                        <p>HUIF Badminton er dataansvarlig, og vi sikrer, at dine personoplysninger behandles i overensstemmelse med lovgivningen.</p>
+                        <div aria-labelledby="kontaktoplysninger">
+                            <h3 id="kontaktoplysninger">Kontaktoplysninger</h2>
 
-            <section id="bestyrelse">
-                <h2 class="section-title">Mød vores bestyrelse</h2>
-                <div class="board-grid">
-                    <div class="board-card">
-                        <img src="images/dummy.png" alt="Formand">
-                        <div class="name">fornavn efternavn</div>
-                        <div class="role">Formand</div>
-                        <div class="contact">test@hjordkaerbadminton.dk</div>
+                            <dl>
+                                <dt>Kontaktperson:</dt>
+                                <dd>FORMAND, Fornavn Efternavn</dd>
+
+                                <dt>E-mail:</dt>
+                                <dd><a href="mailto:xxx@xxx.dk">xxx@xxx.dk</a></dd>
+
+                                <dt>CVR:</dt>
+                                <dd>Hører under HUIF´s CVR: 12836414</dd>
+
+                                <dt>Telefonnr.:</dt>
+                                <dd><a href="tel:+45XXXXXXXX">xx xx xx xx</a></dd>
+
+                                <dt>Website:</dt>
+                                <dd><a href="https://www.badmintonhuif.dk" target="_blank" rel="noopener">www.badmintonhuif.dk</a></dd>
+                            </dl>
+                        </div>
                     </div>
-                    <div class="board-card">
-                        <img src="images/dummy.png" alt="Næstformand">
-                        <div class="name">fornavn efternavn</div>
-                        <div class="role">Næstformand</div>
-                        <div class="contact">test@hjordkaerbadminton.dk</div>
-                    </div>
-                    <div class="board-card">
-                        <img src="images/dummy.png" alt="Kasserer">
-                        <div class="name">fornavn efternavn</div>
-                        <div class="role">Kasserer</div>
-                        <div class="contact">test@hjordkaerbadminton.dk</div>
-                    </div>
-                    <div class="board-card">
-                        <img src="images/dummy.png" alt="Sekretær">
-                        <div class="name">fornavn efternavn</div>
-                        <div class="role">Sekretær</div>
-                        <div class="contact">test@hjordkaerbadminton.dk</div>
-                    </div>
-                    <div class="board-card">
-                        <img src="images/dummy.png" alt="Bestyrelsesmedlem">
-                        <div class="name">fornavn efternavn</div>
-                        <div class="role">Bestyrelsesmedlem</div>
-                        <div class="contact">test@hjordkaerbadminton.dk</div>
+                    <div>
+                        <h2>...</h2>
+                        <p>...</p>
                     </div>
                 </div>
             </section>

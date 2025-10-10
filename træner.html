@@ -126,7 +126,7 @@
         </style>
     </head>
     <body>
-        <p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
+	<p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
         <header>
             <div class="container nav">
                 <a href="index.html" class="brand">Hjordkær UIF Badminton</a>
@@ -141,11 +141,19 @@
                                 <li><a href="frivillighed.html">Frivillighed i klubben</a></li>
                                 <li><a href="vedtægter.html">Vedtægter</a></li>
                                 <li><a href="referater.html">Referat</a></li>
+                                <li><a href="privatlivspolitik.html">Privatlivspolitik</a></li>
                             </ul>
                         </li>
-                        <li><a href="#hold">Hold & træning</a></li>
-                        <li><a href="#turneringer">Turneringer & events</a></li>
-                        <li><a href="#medlem">Medlemskab</a></li>
+                        <li class="dropdown">
+                            <a href="#hold">Hold & træning▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ungdom.html">Ungdom</a></li>
+                                <li><a href="#senior">Senior</a></li>
+                                <li><a href="#motionist">Motionist</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="turnering.html">Turneringer & events</a></li>
+                        <li><a href="medlem.html">Bliv medlem</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
                     </ul>
                 </nav>
@@ -163,10 +171,16 @@
                     <a href="frivillighed.html">Frivillighed i klubben</a>
                     <a href="vedtægter.html">Vedtægter</a>
                     <a href="referater.html">Referat</a>
+                    <a href="privatlivspolitik.html">Privatlivspolitik</a>
                 </div>
-                <a href="#hold">Hold & træning</a>
-                <a href="#turneringer">Turneringer & events</a>
-                <a href="#medlem">Medlemskab</a>
+                <a href="#hold" class="mobile-parent">Hold & træning▾</a>
+                <div class="mobile-submenu">
+                    <a href="ungdom.html">Ungdom</a>
+                    <a href="#senior">Senior</a>
+                    <a href="#motionist">Motionist</a>
+                </div>
+                <a href="turnering.html">Turneringer & events</a>
+                <a href="medlem.html">Bliv medlem</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
         </header>

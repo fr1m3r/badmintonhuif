@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo – Hjordkær UIF Badminton</title>
+    <meta name="description" content="Information om ungdomsbadminton i Hjordkær UIF – se træningstider, trænere og hvordan du bliver en del af vores ungdomshold." />
+    <style>
+      :root{
+        --accent:#0d853e;
+        --muted:#f4f5f6;
+        --dark:#111;
+        --card:#fff;
+        --radius:10px;
+        --max-width:1100px;
+      }
+      *{box-sizing:border-box}
+      body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;margin:0;color:var(--dark);background:linear-gradient(#fff,#fafafa);}
+      a{color:inherit;text-decoration:none}
+      .container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
+
+      /* Header */
+            header{background:transparent; position:sticky; top:0; z-index:40; backdrop-filter: blur(4px);}
+            .nav{display:flex; align-items:center; justify-content:space-between; height:72px;}
+            .brand{font-weight:700; letter-spacing:1px; font-size:20px; text-decoration: none;}
+            nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center}
+            nav a{color:var(--dark); text-decoration:none; font-weight:500}
+            .primary-cta{background:var(--accent); color:white; padding:10px 14px; border-radius:8px; text-decoration:none}
+
+            /* Hamburger (mobile) */
+            .hamburger{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px}
+            .hamburger button{background:transparent; border:0; padding:8px; cursor:pointer; background-color: #0d853e; border-radius:8px; color: white;}
+            .mobile-menu{display:none; background:var(--card); position:absolute; top:72px; left:0; right:0; box-shadow:0 8px 24px rgba(16,24,40,0.08); padding:12px 20px}
+            .mobile-menu a{text-decoration:none; display:block; padding:10px 0; border-bottom:1px solid #f2f2f2}
+
+      .hero{display:flex;align-items:center;min-height:360px;margin-top:20px;border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#f6f7f8,#fff);}
+      .hero-left{flex:1;padding:50px 40px;}
+      h1{font-size:44px;margin:0 0 12px;}
+      p.lead{font-size:18px;color:#4d5055;margin:0 0 18px;}
+      .hero-right{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;}
+      .hero-right img{width:100%;max-width:440px;border-radius:12px;box-shadow:0 10px 30px rgba(17,17,17,0.06);}
+
+      section{padding:40px 0;}
+      h2.section-title{font-size:28px;margin:0 0 18px;}
+      .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+      .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(16,24,40,0.04);}
+      .card .thumb{height:120px;background:var(--muted);border-radius:8px;overflow:hidden;}
+      .card img{width:100%;height:100%;object-fit:cover;}
+      .card .title{font-weight:700;margin-top:10px;}
+      .card .meta{font-size:14px;color:#6b6f76;margin-top:8px;}
+      table{width:100%;border-collapse:collapse;margin-top:16px;}
+      th,td{padding:10px;border-bottom:1px solid #eee;text-align:left;font-size:15px;}
+      th{background:#f9fafb;font-weight:600;}
+      .trainer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:20px;}
+      .trainer-card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 18px rgba(16,24,40,0.04);padding:14px;text-align:center;}
+      .trainer-card img{width:100%;height:200px;object-fit:cover;border-radius:8px;}
+      .trainer-card h3{margin:10px 0 4px;}
+      .trainer-card p{margin:0;font-size:14px;color:#6b6f76;}
+      .info-box{background:var(--muted);padding:20px;border-radius:10px;margin-top:24px;}
+      .btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:600;text-decoration:none;}
+      .btn-primary{background:var(--accent);color:#fff;}
+
+      footer{padding:28px 0;border-top:1px solid #eee;}
+      .footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center;}
+      .sponsors{display:flex;gap:12px;align-items:center;}
+      .sponsor{height:36px;width:84px;background:linear-gradient(#f0f0f0,#e8e8e8);border-radius:6px;}
+
+      /* Dropdown menu */
+            .dropdown {
+                position: relative;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--card);
+                box-shadow: 0 6px 18px rgba(16,24,40,0.08);
+                border-radius: var(--radius);
+                list-style: none;
+                margin: 0;
+                padding: 8px 0;
+                display: none;
+                min-width: 180px;
+                z-index: 50;
+            }
+
+            .dropdown-menu li a {
+                display: block;
+                padding: 10px 16px;
+                text-decoration: none;
+                color: var(--dark);
+                white-space: nowrap;
+            }
+
+            .dropdown-menu li a:hover {
+                background: var(--muted);
+            }
+
+            /* Vis dropdown ved hover */
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .mobile-submenu {
+                display: none;
+                margin-left: 16px;
+                border-left: 2px solid var(--muted);
+                padding-left: 10px;
+            }
+
+            .mobile-submenu.open {
+                display: block;
+            }
+
+      @media(max-width:900px){
+        .hero{flex-direction:column;padding-bottom:20px;}
+        .grid{grid-template-columns:1fr 1fr;}
+        h1{font-size:32px;}
+      }
+      @media(max-width:560px){
+        .grid{grid-template-columns:1fr;}
+        h1{font-size:26px;}
+      }
+
+      /* Responsive */
+            @media (max-width:900px){
+                h1{font-size:36px}
+                .grid{grid-template-columns:repeat(2,1fr)}
+                .hero{flex-direction:column; padding-bottom:10px}
+                .hero-right{order:-1; width:100%}
+                .hero-left{padding:28px}
+                .hero-overlay{font-weight:300}
+
+            }
+            @media (max-width:560px){
+                h1{font-size:28px}
+                nav ul{display:none}
+                .hamburger{display:flex}
+                .hero-overlay{font-weight:300}
+            }
+    </style>
+  </head>
+  <body>
+	<p>Dette er en demo hjemmeside til Hjordkær UIF Badminton - Den officielle hjemmeside finder du her <a href="https://www.badmintonhuif.dk">www.badmintonhuif.dk</a></p>
+    <header>
+            <div class="container nav">
+                <a href="index.html" class="brand">Hjordkær UIF Badminton</a>
+                <nav>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#om">Om klubben▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="hvem.html">Hvem er vi? / Historie</a></li>
+                                <li><a href="bestyrelse.html">Bestyrelse</a></li>
+                                <li><a href="træner.html">Træner</a></li>
+                                <li><a href="frivillighed.html">Frivillighed i klubben</a></li>
+                                <li><a href="vedtægter.html">Vedtægter</a></li>
+                                <li><a href="referater.html">Referat</a></li>
+                                <li><a href="privatlivspolitik.html">Privatlivspolitik</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#hold">Hold & træning▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ungdom.html">Ungdom</a></li>
+                                <li><a href="#senior">Senior</a></li>
+                                <li><a href="#motionist">Motionist</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="turnering.html">Turneringer & events</a></li>
+                        <li><a href="medlem.html">Bliv medlem</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+
+                <div class="hamburger" aria-hidden="false">
+                    <button id="hamburgerBtn" aria-label="Åbn menu" class="">Menu</button>
+                </div>
+            </div>
+            <div class="container mobile-menu" id="mobileMenu" aria-hidden="true">
+                <a href="#om" class="mobile-parent">Om klubben▾</a>
+                <div class="mobile-submenu">
+                    <a href="hvem.html">Hvem er vi? / Klubbens historie</a>
+                    <a href="bestyrelse.html">Bestyrelse</a>
+                    <a href="træner.html">Træner</a>
+                    <a href="frivillighed.html">Frivillighed i klubben</a>
+                    <a href="vedtægter.html">Vedtægter</a>
+                    <a href="referater.html">Referat</a>
+                    <a href="privatlivspolitik.html">Privatlivspolitik</a>
+                </div>
+                <a href="#hold" class="mobile-parent">Hold & træning▾</a>
+                <div class="mobile-submenu">
+                    <a href="ungdom.html">Ungdom</a>
+                    <a href="#senior">Senior</a>
+                    <a href="#motionist">Motionist</a>
+                </div>
+                <a href="turnering.html">Turneringer & events</a>
+                <a href="medlem.html">Bliv medlem</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Ungdomsbadminton i <span style="color:var(--accent)">Hjordkær</span></h1>
+          <p class="lead">Træning, fællesskab og udvikling for børn og unge i alle aldre.</p>
+          <a href="#tilmelding" class="btn btn-primary">Tilmeld dig et hold</a>
+        </div>
+        <div class="hero-right">
+          <img src="images/logo_uden_fyld_krans_v2.png" alt="Ungdomsbadminton træning" />
+        </div>
+      </section>
+
+      <section id="hold">
+        <h2 class="section-title">Ungdomshold & Træningstider</h2>
+        <p>Vi har hold til både begyndere og øvede – kom og vær med!</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Aldersgruppe</th>
+              <th>Træningstid</th>
+              <th>Dag</th>
+              <th>Sted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>U9 – U11</td><td>17:00 - 18:00</td><td>Tirsdag</td><td>Hjordkær Hallen</td></tr>
+            <tr><td>U13 – U15</td><td>18:00 - 19:15</td><td>Tirsdag</td><td>Hjordkær Hallen</td></tr>
+            <tr><td>U17 – U19</td><td>19:15 - 20:30</td><td>Torsdag</td><td>Hjordkær Hallen</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="traenere">
+        <h2 class="section-title">Vores trænere</h2>
+        <div class="trainer-grid">
+          <div class="trainer-card">
+            <img src="images/dummy.png" alt="Træner 1">
+            <h3>Anders And</h3>
+            <p>Cheftræner • DBF Uddannet</p>
+          </div>
+          <div class="trainer-card">
+            <img src="images/dummy.png" alt="Træner 2">
+            <h3>Andersine And</h3>
+            <p>Assistenttræner • Fokus på teknik og leg</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="praktisk">
+        <h2 class="section-title">Praktisk information</h2>
+        <div class="info-box">
+          <p><strong>Udstyr:</strong> Du kan låne ketcher de første gange. Husk indendørssko og drikkedunk.</p>
+          <p><strong>Pris:</strong> 550 kr. pr. sæson (sept.–apr.)</p>
+          <p><strong>Prøvetræning:</strong> Du må altid deltage 2–3 gange gratis før tilmelding.</p>
+        </div>
+      </section>
+
+      <section id="tilmelding">
+        <h2 class="section-title">Tilmelding</h2>
+        <p>Udfyld formularen nedenfor, så kontakter vi dig hurtigst muligt.</p>
+        <form id="signupForm" onsubmit="signup(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <input type="text" name="navn" placeholder="Barnets navn" required>
+            <input type="text" name="alder" placeholder="Alder" required>
+          </div>
+          <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <input type="text" name="forælder" placeholder="Forælder navn" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+          </div>
+          <div style="margin-top:10px;">
+            <input type="tel" name="telefon" placeholder="Telefonnummer" required>
+          </div>
+          <button class="btn btn-primary" style="margin-top:12px;">Send tilmelding</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>© <strong>Hjordkær UIF Badminton</strong> — Ungdomsafdelingen</div>
+          <div class="sponsors">
+            <div class="sponsor"></div>
+            <div class="sponsor"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function signup(e){
+        e.preventDefault();
+        const form = e.target;
+        alert("Tak for din tilmelding! Vi vender snart tilbage på mail.");
+        form.reset();
+      }
+    </script>
+  </body>
+</html>
